@@ -1,13 +1,13 @@
 <template>
     <div>
-        <li class="list-group-item" :class="className"><slot></slot></li>
-        <small class="badge float-right" :class="badgeClass">You</small>
+        <li class="list-group-item" :class="className"><slot></slot> <small class="badge badge-info float-right">{{time}}</small></li>
+        <small class="badge float-right" :class="badgeClass">{{user.name}}</small>
     </div>
 </template>
 
 <script>
     export default {
-        props: ['color'],
+        props: ['color','user', 'time'],
         computed: {
             className() {
                 return 'list-group-item-'+this.color;
