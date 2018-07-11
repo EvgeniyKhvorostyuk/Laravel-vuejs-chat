@@ -18,10 +18,12 @@
     
     <div class="container">
         <div class="row" id="app">
-            <div class="offset-4 col-4">
-                <li class="list-group-item active">Chat room</li>
+            <div class="offset-4 col-4 offset-sm-1 col-sm-10">
+                <li class="list-group-item active">Chat room <span class="badge badge-pill badge-danger">@{{usersNumber}}</span></li>
+                <div class="badge badge-pill badge-primary">@{{typing}}</div>
                 <ul class="list-group" v-chat-scroll>
-                    <message v-for="value in chat.message" :key="value.id" color="warning">@{{value}}</message>
+                    <message v-for="value,index in chat.message" :key="value.id" :color="chat.color[index]" :user="chat.user[index]" :time="chat.time[index]"
+                    >@{{value}}</message>
                 </ul>
                 <input type="text" class="form-control" placeholder="Type something" v-model="message" @keyup.enter="send">
             </div>
