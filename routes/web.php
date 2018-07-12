@@ -17,6 +17,9 @@ Route::get('/', function () {
 
 Route::get('chat', 'ChatController@index')->name('chat.index');
 Route::post('send', 'ChatController@send')->name('chat.send');
+Route::post('/saveToSession', 'ChatController@saveToSession')->name('chat.saveToSession');
+Route::post('/deleteSession', 'ChatController@deleteSession')->name('chat.deleteSession');
+Route::match(['get', 'post'], '/getOldMessage', 'ChatController@getOldMessage')->name('chat.getOldMessage');
 
 Auth::routes();
 

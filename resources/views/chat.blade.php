@@ -26,6 +26,7 @@
                     >@{{value}}</message>
                 </ul>
                 <input type="text" class="form-control" placeholder="Type something" v-model="message" @keyup.enter="send">
+                <button class="btn btn-info btn-sm mt-2" @click.prevent="deleteSession">Clear chat history</button>
             </div>
         </div>
     </div>
